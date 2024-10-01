@@ -9,13 +9,20 @@ export default function Header(context) {
     const handleCheckChange = () => {
       if(themeContext.theme === 'dark') {
         themeContext.setTheme('light');
+        localStorage.setItem('localTheme', 'light')
       } else {
         themeContext.setTheme('dark');
+        localStorage.setItem('localTheme', 'dark')
       }
     }
 
     const handleButtonClick = () => {
-      console.log("CLICK!");
+        
+      console.log('Before: ' + localStorage.getItem('localTheme'))
+
+      themeContext.setTheme('light')
+      localStorage.setItem('localTheme', 'light')
+      console.log('After: ' + localStorage.getItem('localTheme'))
     }
 
     return (
